@@ -1,0 +1,15 @@
+# Official SerpApi Python client (pip install serpapi -> `import serpapi`).
+# https://github.com/serpapi/serpapi-python
+serpapi>=0.1.0
+
+# Used as a fallback HTTP client if the serpapi package is ever
+# unavailable, and directly by tracker/serp_client.py's error paths.
+requests>=2.31
+
+# Chart generation in reports/generate_report.py. The tracker itself
+# (tracker/main.py) does not depend on this - only reporting does.
+matplotlib>=3.8
+
+# Test suite (tests/test_extract.py). Not required to run the tracker
+# in production/GitHub Actions, only for local development.
+pytest>=8.0
