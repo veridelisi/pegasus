@@ -44,11 +44,14 @@ def write_full_csv(conn) -> None:
 
 
 def write_seller_csv(conn) -> None:
-    """One row per (observation, seller) offer - the raw material for
-    tracking each individual seller's PC2476 price over time.
+    """One row per (observation, seller, fare_type) offer - the raw
+    material for tracking each individual seller/fare combination's
+    PC2476 price over time. The same seller can appear multiple times
+    per checked_at with different fare_type values (e.g. Pegasus
+    "Basic Economy" vs "Economy Plus") - that's expected, not a bug.
     """
     rows = db.export_seller_offers(conn)
-    fieldnames = ["checked_at", "seller", "price", "currency", "source"]
+    fieldnames = ["checked_at", "seller", "fare_type", "price", "currency", "source"]
     SELLER_CSV_PATH.parent.mkdir(parents=True, exist_ok=True)
     with open(SELLER_CSV_PATH, "w", newline="", encoding="utf-8") as f:
         writer = csv.DictWriter(f, fieldnames=fieldnames)
@@ -59,6 +62,14 @@ def write_seller_csv(conn) -> None:
 
 
 def plot_seller_chart(conn) -> None:
+    """Plots ONE line per seller: the CHEAPEST fare_type that seller had
+    at each observation. Multiple fare classes per seller (see
+    write_seller_csv) are real data and stay in the CSV, but plotting
+    all of them here would draw several points at the exact same
+    timestamp for one seller, which reads as a confusing zigzag rather
+    than a trend. Aggregating to "cheapest per seller per observation"
+    keeps the chart readable while the CSV keeps full fare-class detail.
+    """
     try:
         import matplotlib
         matplotlib.use("Agg")
@@ -76,14 +87,23 @@ def plot_seller_chart(conn) -> None:
         print("No seller offers recorded yet - skipping seller chart.")
         return
 
-    by_seller: dict[str, list[tuple]] = defaultdict(list)
+    # (seller, checked_at) -> cheapest price seen for that seller at
+    # that observation, collapsing multiple fare_type rows into one point.
+    cheapest_per_seller_per_time: dict[tuple[str, str], float] = {}
     currency = ""
     for row in rows:
         seller = row["seller"] or "Unknown seller"
-        by_seller[seller].append(
-            (datetime.fromisoformat(row["checked_at"]), row["price"])
-        )
+        key = (seller, row["checked_at"])
+        price = row["price"]
+        if price is None:
+            continue
+        if key not in cheapest_per_seller_per_time or price < cheapest_per_seller_per_time[key]:
+            cheapest_per_seller_per_time[key] = price
         currency = row["currency"] or currency
+
+    by_seller: dict[str, list[tuple]] = defaultdict(list)
+    for (seller, checked_at), price in cheapest_per_seller_per_time.items():
+        by_seller[seller].append((datetime.fromisoformat(checked_at), price))
 
     fig, ax = plt.subplots(figsize=(11, 5.5))
     for seller, points in sorted(by_seller.items()):
@@ -92,7 +112,9 @@ def plot_seller_chart(conn) -> None:
         ys = [p[1] for p in points]
         ax.plot(xs, ys, marker="o", markersize=3, linewidth=1.3, label=seller)
 
-    ax.set_title("Pegasus PC2476 - Price by Seller (ESB \u2192 ADB, 2026-09-17)")
+    ax.set_title(
+        "Pegasus PC2476 - Cheapest Fare per Seller (ESB \u2192 ADB, 2026-09-17)"
+    )
     ax.set_xlabel("Observation timestamp (Europe/Istanbul)")
     ax.set_ylabel(f"Price ({currency})" if currency else "Price")
     ax.xaxis.set_major_formatter(mdates.DateFormatter("%m-%d %H:%M"))
