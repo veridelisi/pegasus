@@ -23,6 +23,8 @@ from tracker import db  # noqa: E402
 from tracker.config import CSV_PATH, DATA_DIR  # noqa: E402
 
 CHART_PATH = DATA_DIR / "pc2476_price_chart.png"
+SELLER_CSV_PATH = DATA_DIR / "seller_prices.csv"
+SELLER_CHART_PATH = DATA_DIR / "seller_price_chart.png"
 
 
 def write_full_csv(conn) -> None:
@@ -39,6 +41,67 @@ def write_full_csv(conn) -> None:
         for row in rows:
             writer.writerow({k: row[k] for k in fieldnames})
     print(f"Wrote {len(rows)} rows to {CSV_PATH}")
+
+
+def write_seller_csv(conn) -> None:
+    """One row per (observation, seller) offer - the raw material for
+    tracking each individual seller's PC2476 price over time.
+    """
+    rows = db.export_seller_offers(conn)
+    fieldnames = ["checked_at", "seller", "price", "currency", "source"]
+    SELLER_CSV_PATH.parent.mkdir(parents=True, exist_ok=True)
+    with open(SELLER_CSV_PATH, "w", newline="", encoding="utf-8") as f:
+        writer = csv.DictWriter(f, fieldnames=fieldnames)
+        writer.writeheader()
+        for row in rows:
+            writer.writerow({k: row[k] for k in fieldnames})
+    print(f"Wrote {len(rows)} seller-offer rows to {SELLER_CSV_PATH}")
+
+
+def plot_seller_chart(conn) -> None:
+    try:
+        import matplotlib
+        matplotlib.use("Agg")
+        import matplotlib.dates as mdates
+        import matplotlib.pyplot as plt
+    except ImportError:
+        print("matplotlib not installed - skipping seller chart.")
+        return
+
+    from collections import defaultdict
+    from datetime import datetime
+
+    rows = db.export_seller_offers(conn)
+    if not rows:
+        print("No seller offers recorded yet - skipping seller chart.")
+        return
+
+    by_seller: dict[str, list[tuple]] = defaultdict(list)
+    currency = ""
+    for row in rows:
+        seller = row["seller"] or "Unknown seller"
+        by_seller[seller].append(
+            (datetime.fromisoformat(row["checked_at"]), row["price"])
+        )
+        currency = row["currency"] or currency
+
+    fig, ax = plt.subplots(figsize=(11, 5.5))
+    for seller, points in sorted(by_seller.items()):
+        points.sort(key=lambda p: p[0])
+        xs = [p[0] for p in points]
+        ys = [p[1] for p in points]
+        ax.plot(xs, ys, marker="o", markersize=3, linewidth=1.3, label=seller)
+
+    ax.set_title("Pegasus PC2476 - Price by Seller (ESB \u2192 ADB, 2026-09-17)")
+    ax.set_xlabel("Observation timestamp (Europe/Istanbul)")
+    ax.set_ylabel(f"Price ({currency})" if currency else "Price")
+    ax.xaxis.set_major_formatter(mdates.DateFormatter("%m-%d %H:%M"))
+    fig.autofmt_xdate()
+    ax.legend(loc="best", fontsize=8)
+    ax.grid(True, alpha=0.3)
+    fig.tight_layout()
+    fig.savefig(SELLER_CHART_PATH, dpi=150)
+    print(f"Wrote seller chart to {SELLER_CHART_PATH}")
 
 
 def plot_chart(conn) -> None:
@@ -95,6 +158,8 @@ def main() -> int:
     with db.connect() as conn:
         write_full_csv(conn)
         plot_chart(conn)
+        write_seller_csv(conn)
+        plot_seller_chart(conn)
     return 0
 
 
