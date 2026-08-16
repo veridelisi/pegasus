@@ -54,6 +54,19 @@ def test_google_price_insights_kept_separate_and_correct(sample_response):
     assert result.price == 1749  # happens to match here, but via booking_options
 
 
+def test_all_offers_includes_every_seller_sorted_by_price(sample_response):
+    result = extract_pc2476_price(sample_response, EXPECTED_FLIGHT)
+    assert result.status == STATUS_SUCCESS
+    assert len(result.all_offers) == 2
+    prices = [o["price"] for o in result.all_offers]
+    assert prices == sorted(prices)  # ascending, cheapest first
+    sellers = {o["seller"] for o in result.all_offers}
+    assert sellers == {"Pegasus Airlines", "GoToGate"}
+    # the top-level `price`/`seller` must always match all_offers[0]
+    assert result.all_offers[0]["price"] == result.price
+    assert result.all_offers[0]["seller"] == result.seller
+
+
 def test_cheapest_booking_option_wins_even_if_not_first(sample_response):
     data = copy.deepcopy(sample_response)
     # Swap order and make the second (GoToGate) cheaper than Pegasus direct
