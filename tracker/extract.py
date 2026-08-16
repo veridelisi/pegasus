@@ -186,11 +186,16 @@ def validate_itinerary(
 
 def _price_candidates_from_booking_options(
     booking_options: list[dict],
-) -> list[tuple[float, str, Optional[str]]]:
-    """Returns (price, json_source_path, seller) tuples, one per usable
-    booking_options entry, cheapest first is NOT guaranteed - caller sorts.
+) -> list[tuple[float, str, Optional[str], Optional[str]]]:
+    """Returns (price, json_source_path, seller, fare_type) tuples, one
+    per usable booking_options entry. `fare_type` is booking_options[i]
+    .together.option_title when present (e.g. "Basic Economy",
+    "Economy Plus") - the same seller can legitimately appear multiple
+    times with different fare_type values, which is why "3x Pegasus"
+    with different prices is normal, not a bug. Cheapest-first is NOT
+    guaranteed here - caller sorts.
     """
-    candidates: list[tuple[float, str, Optional[str]]] = []
+    candidates: list[tuple[float, str, Optional[str], Optional[str]]] = []
 
     for i, option in enumerate(booking_options or []):
         if option.get("separate_tickets"):
@@ -199,12 +204,14 @@ def _price_candidates_from_booking_options(
             if "price" in departing and "price" in returning:
                 price = departing["price"] + returning["price"]
                 seller = departing.get("book_with") or returning.get("book_with")
+                fare_type = departing.get("option_title") or returning.get("option_title")
                 candidates.append(
                     (
                         float(price),
                         f"booking_options[{i}].departing.price + "
                         f"booking_options[{i}].returning.price (separate_tickets)",
                         seller,
+                        fare_type,
                     )
                 )
                 continue
@@ -217,6 +224,7 @@ def _price_candidates_from_booking_options(
                         float(together["price"]),
                         f"booking_options[{i}].together.price",
                         together.get("book_with"),
+                        together.get("option_title"),
                     )
                 )
             continue
@@ -228,6 +236,7 @@ def _price_candidates_from_booking_options(
                     float(together["price"]),
                     f"booking_options[{i}].together.price",
                     together.get("book_with"),
+                    together.get("option_title"),
                 )
             )
 
@@ -318,7 +327,7 @@ def extract_pc2476_price(
 
     if candidates:
         candidates.sort(key=lambda c: c[0])
-        price, source, seller = candidates[0]
+        price, source, seller, fare_type = candidates[0]
         currency = results.get("search_parameters", {}).get("currency")
         extra_note = (
             f"{len(candidates)} booking_options price(s) found for this "
@@ -327,8 +336,13 @@ def extract_pc2476_price(
             else "1 booking_options price found for this itinerary"
         )
         all_offers = [
-            {"seller": c_seller, "price": c_price, "source": c_source}
-            for c_price, c_source, c_seller in candidates
+            {
+                "seller": c_seller,
+                "price": c_price,
+                "source": c_source,
+                "fare_type": c_fare_type,
+            }
+            for c_price, c_source, c_seller, c_fare_type in candidates
         ]
         return ExtractionResult(
             status=STATUS_SUCCESS,

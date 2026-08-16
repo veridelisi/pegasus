@@ -57,6 +57,7 @@ CREATE TABLE IF NOT EXISTS seller_offers (
     observation_id  INTEGER NOT NULL REFERENCES price_history(id),
     checked_at      TEXT NOT NULL,   -- duplicated from price_history for easy querying
     seller          TEXT,
+    fare_type       TEXT,            -- e.g. "Basic Economy" - same seller can have several
     price           REAL,
     currency        TEXT,
     source          TEXT             -- e.g. booking_options[3].together.price
@@ -92,10 +93,25 @@ def connect(db_path: Path = DB_PATH):
     try:
         conn.execute("PRAGMA journal_mode=WAL;")
         conn.executescript(SCHEMA)
+        _migrate(conn)
         yield conn
         conn.commit()
     finally:
         conn.close()
+
+
+def _migrate(conn: sqlite3.Connection) -> None:
+    """Lightweight, additive-only migrations for columns introduced
+    after a database file may already have been created. Safe to run
+    on every connect() - each ALTER only fires if the column is
+    genuinely missing.
+    """
+    existing_columns = {
+        row["name"]
+        for row in conn.execute("PRAGMA table_info(seller_offers)").fetchall()
+    }
+    if "fare_type" not in existing_columns:
+        conn.execute("ALTER TABLE seller_offers ADD COLUMN fare_type TEXT")
 
 
 def now_istanbul_iso() -> str:
@@ -130,20 +146,24 @@ def insert_seller_offers(
     offers: list[dict],
 ) -> None:
     """`offers` is the ExtractionResult.all_offers list: each item is
-    {"seller": str|None, "price": float, "source": str}. Safe to call
-    with an empty list (does nothing).
+    {"seller": str|None, "price": float, "source": str,
+    "fare_type": str|None}. Safe to call with an empty list (does
+    nothing). The SAME seller can legitimately appear multiple times
+    per observation with different fare_type values (e.g. "Basic
+    Economy" vs "Economy Plus") - that's not a bug.
     """
     for offer in offers or []:
         conn.execute(
             """
             INSERT INTO seller_offers
-                (observation_id, checked_at, seller, price, currency, source)
-            VALUES (?, ?, ?, ?, ?, ?)
+                (observation_id, checked_at, seller, fare_type, price, currency, source)
+            VALUES (?, ?, ?, ?, ?, ?, ?)
             """,
             (
                 observation_id,
                 checked_at,
                 offer.get("seller"),
+                offer.get("fare_type"),
                 offer.get("price"),
                 currency,
                 offer.get("source"),
