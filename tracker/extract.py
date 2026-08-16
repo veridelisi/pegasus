@@ -53,6 +53,13 @@ class ExtractionResult:
     matched_arrival_time: Optional[str] = None
     notes: list = field(default_factory=list)
 
+    # ALL booking_options offers found for this itinerary (not just the
+    # cheapest). Each entry: {"seller": str|None, "price": float,
+    # "source": str}. `price`/`seller`/`source` above always mirror the
+    # cheapest entry of this list - this list is purely additive, for
+    # anyone who wants to track every seller's price over time.
+    all_offers: list = field(default_factory=list)
+
     # Secondary/analytical fields, never used to derive `price` above.
     google_lowest_price: Optional[float] = None
     google_price_level: Optional[str] = None
@@ -65,6 +72,7 @@ class ExtractionResult:
             "price": self.price,
             "currency": self.currency,
             "source": self.source,
+            "all_offers": self.all_offers,
             "validated_flight": self.validated_flight,
             "seller": self.seller,
             "matched_departure_time": self.matched_departure_time,
@@ -311,22 +319,28 @@ def extract_pc2476_price(
     if candidates:
         candidates.sort(key=lambda c: c[0])
         price, source, seller = candidates[0]
+        currency = results.get("search_parameters", {}).get("currency")
         extra_note = (
             f"{len(candidates)} booking_options price(s) found for this "
             f"itinerary; used the minimum"
             if len(candidates) > 1
             else "1 booking_options price found for this itinerary"
         )
+        all_offers = [
+            {"seller": c_seller, "price": c_price, "source": c_source}
+            for c_price, c_source, c_seller in candidates
+        ]
         return ExtractionResult(
             status=STATUS_SUCCESS,
             price=price,
-            currency=results.get("search_parameters", {}).get("currency"),
+            currency=currency,
             source=source,
             validated_flight=validated_flight,
             seller=seller,
             matched_departure_time=dep_time,
             matched_arrival_time=arr_time,
             notes=notes + [extra_note],
+            all_offers=all_offers,
             **{k: v for k, v in insights.items() if k != "google_price_history"},
         )
 

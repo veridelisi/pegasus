@@ -47,6 +47,27 @@ CREATE TABLE IF NOT EXISTS price_history (
 
 CREATE INDEX IF NOT EXISTS idx_price_history_checked_at
     ON price_history (checked_at);
+
+-- One row per (observation, seller) offer found in booking_options for
+-- that observation - NOT just the cheapest one that ends up in
+-- price_history.pc2476_price. Lets you track how each individual
+-- seller's price for PC2476 behaves over time.
+CREATE TABLE IF NOT EXISTS seller_offers (
+    id              INTEGER PRIMARY KEY AUTOINCREMENT,
+    observation_id  INTEGER NOT NULL REFERENCES price_history(id),
+    checked_at      TEXT NOT NULL,   -- duplicated from price_history for easy querying
+    seller          TEXT,
+    price           REAL,
+    currency        TEXT,
+    source          TEXT             -- e.g. booking_options[3].together.price
+);
+
+CREATE INDEX IF NOT EXISTS idx_seller_offers_observation
+    ON seller_offers (observation_id);
+CREATE INDEX IF NOT EXISTS idx_seller_offers_seller
+    ON seller_offers (seller);
+CREATE INDEX IF NOT EXISTS idx_seller_offers_checked_at
+    ON seller_offers (checked_at);
 """
 
 # Statuses that represent an actual SerpApi request having been made
@@ -99,6 +120,42 @@ def insert_observation(conn: sqlite3.Connection, row: dict) -> int:
     sql = f"INSERT INTO price_history ({', '.join(columns)}) VALUES ({placeholders})"
     cur = conn.execute(sql, values)
     return cur.lastrowid
+
+
+def insert_seller_offers(
+    conn: sqlite3.Connection,
+    observation_id: int,
+    checked_at: str,
+    currency: Optional[str],
+    offers: list[dict],
+) -> None:
+    """`offers` is the ExtractionResult.all_offers list: each item is
+    {"seller": str|None, "price": float, "source": str}. Safe to call
+    with an empty list (does nothing).
+    """
+    for offer in offers or []:
+        conn.execute(
+            """
+            INSERT INTO seller_offers
+                (observation_id, checked_at, seller, price, currency, source)
+            VALUES (?, ?, ?, ?, ?, ?)
+            """,
+            (
+                observation_id,
+                checked_at,
+                offer.get("seller"),
+                offer.get("price"),
+                currency,
+                offer.get("source"),
+            ),
+        )
+
+
+def export_seller_offers(conn: sqlite3.Connection) -> list[sqlite3.Row]:
+    cur = conn.execute(
+        "SELECT * FROM seller_offers ORDER BY checked_at ASC, id ASC"
+    )
+    return cur.fetchall()
 
 
 def get_latest_observation(conn: sqlite3.Connection) -> Optional[sqlite3.Row]:

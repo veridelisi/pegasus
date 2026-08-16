@@ -204,11 +204,12 @@ def run_normal(save_response_path: str | None, skip_quota_check: bool, skip_dupl
         is_first_row = db.row_count(conn) == 0
 
         monthly_calls = db.count_calls_this_month(conn, now.year, now.month) + 1
+        checked_at_str = now.isoformat(timespec="seconds")
 
-        db.insert_observation(
+        observation_id = db.insert_observation(
             conn,
             {
-                "checked_at": now.isoformat(timespec="seconds"),
+                "checked_at": checked_at_str,
                 "flight_date": EXPECTED_FLIGHT.date,
                 "flight_number": EXPECTED_FLIGHT.flight_number,
                 "departure_airport": EXPECTED_FLIGHT.departure_id,
@@ -230,6 +231,14 @@ def run_normal(save_response_path: str | None, skip_quota_check: bool, skip_dupl
                 "counted_toward_quota": 1,
             },
         )
+
+        # Every seller's offer for this itinerary, not just the cheapest
+        # one stored above - lets you track individual sellers over time.
+        if result.all_offers:
+            db.insert_seller_offers(
+                conn, observation_id, checked_at_str, result.currency, result.all_offers
+            )
+
         write_csv(conn)
 
         save_evidence, reason = should_save_raw_evidence(result, is_first_row, previous_price)
