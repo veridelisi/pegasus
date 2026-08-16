@@ -1,0 +1,112 @@
+{
+  "search_metadata": {
+    "id": "sample_6700000000000000000000000",
+    "status": "Success",
+    "google_flights_url": "https://www.google.com/travel/flights"
+  },
+  "search_parameters": {
+    "engine": "google_flights",
+    "hl": "en",
+    "gl": "tr",
+    "type": "2",
+    "departure_id": "ESB",
+    "arrival_id": "ADB",
+    "outbound_date": "2026-09-17",
+    "currency": "TRY"
+  },
+  "selected_flights": [
+    {
+      "flights": [
+        {
+          "departure_airport": {
+            "name": "Ankara Esenbo\u011fa Airport",
+            "id": "ESB",
+            "time": "2026-09-17 19:30"
+          },
+          "arrival_airport": {
+            "name": "Adnan Menderes Airport",
+            "id": "ADB",
+            "time": "2026-09-17 20:45"
+          },
+          "duration": 75,
+          "airplane": "Boeing 737",
+          "airline": "Pegasus Airlines",
+          "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/PC.png",
+          "travel_class": "Economy",
+          "flight_number": "PC 2476",
+          "legroom": "29 in",
+          "extensions": [
+            "Average legroom (29 in)",
+            "Carbon emissions estimate: 95 kg"
+          ]
+        }
+      ],
+      "total_duration": 75,
+      "carbon_emissions": {
+        "this_flight": 95000,
+        "typical_for_this_route": 98000,
+        "difference_percent": -3
+      },
+      "type": "One way",
+      "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/PC.png",
+      "booking_token": "SAMPLE_TOKEN_DO_NOT_USE=="
+    }
+  ],
+  "baggage_prices": {
+    "together": [
+      "1 free personal item",
+      "1st checked bag: 450"
+    ]
+  },
+  "booking_options": [
+    {
+      "together": {
+        "book_with": "Pegasus Airlines",
+        "airline": true,
+        "airline_logos": [
+          "https://www.gstatic.com/flights/airline_logos/70px/PC.png"
+        ],
+        "marketed_as": ["PC 2476"],
+        "price": 1749,
+        "local_prices": [
+          {"currency": "TRY", "price": 1749}
+        ],
+        "option_title": "Economy",
+        "extensions": [
+          "No refunds",
+          "Ticket changes for a fee"
+        ],
+        "baggage_prices": [
+          "1 free personal item",
+          "1st checked bag: 450"
+        ]
+      }
+    },
+    {
+      "together": {
+        "book_with": "GoToGate",
+        "airline_logos": [
+          "https://www.gstatic.com/flights/partner_logos/70px/ETRAVELI_Gotogate.png"
+        ],
+        "marketed_as": ["PC 2476"],
+        "price": 1799,
+        "local_prices": [
+          {"currency": "TRY", "price": 1799}
+        ],
+        "baggage_prices": [
+          "1 free personal item",
+          "1st checked bag: 480"
+        ]
+      }
+    }
+  ],
+  "price_insights": {
+    "lowest_price": 1749,
+    "price_level": "typical",
+    "typical_price_range": [1600, 2400],
+    "price_history": [
+      [1755100800, 1690],
+      [1755360000, 1749]
+    ]
+  }
+}
