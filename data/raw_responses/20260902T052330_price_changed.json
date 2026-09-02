@@ -1,0 +1,429 @@
+{
+  "search_metadata": {
+    "id": "6a97889765f701c6df7493ce",
+    "status": "Success",
+    "json_endpoint": "https://serpapi.com/searches/U2M47sj2g93ym7YbwuUmPSfpaF25dNKz2mhqRQgSCCo/6a97889765f701c6df7493ce.json",
+    "markdown_endpoint": "https://serpapi.com/searches/U2M47sj2g93ym7YbwuUmPSfpaF25dNKz2mhqRQgSCCo/6a97889765f701c6df7493ce.md",
+    "created_at": "2026-09-02 02:23:19 UTC",
+    "processed_at": "2026-09-02 02:23:19 UTC",
+    "google_flights_url": "https://www.google.com/travel/flights?hl=en&gl=tr&curr=TRY&tfs=CBwQAhpAEgoyMDI2LTA5LTE3IiAKA0VTQhIKMjAyNi0wOS0xNxoDQURCKgJQQzIEMjQ3NmoHCAESA0VTQnIHCAESA0FEQkABSAFwAZgBAg&tfu=EgIIAQ",
+    "raw_html_file": "https://serpapi.com/searches/U2M47sj2g93ym7YbwuUmPSfpaF25dNKz2mhqRQgSCCo/6a97889765f701c6df7493ce.html",
+    "prettify_html_file": "https://serpapi.com/searches/U2M47sj2g93ym7YbwuUmPSfpaF25dNKz2mhqRQgSCCo/6a97889765f701c6df7493ce.prettify",
+    "total_time_taken": 11.01
+  },
+  "search_parameters": {
+    "engine": "google_flights",
+    "hl": "en",
+    "gl": "tr",
+    "type": "2",
+    "departure_id": "ESB",
+    "arrival_id": "ADB",
+    "outbound_date": "2026-09-17",
+    "currency": "TRY",
+    "selected_flights_json": "{\"outbound\": [{\"flight_number\": \"PC2476\", \"departure_id\": \"ESB\", \"arrival_id\": \"ADB\", \"date\": \"2026-09-17\"}]}"
+  },
+  "selected_flights": [
+    {
+      "flights": [
+        {
+          "departure_airport": {
+            "name": "Ankara Esenboga Airport",
+            "id": "ESB",
+            "time": "2026-09-17 19:30"
+          },
+          "arrival_airport": {
+            "name": "Izmir Adnan Menderes Airport",
+            "id": "ADB",
+            "time": "2026-09-17 20:45"
+          },
+          "duration": 75,
+          "airplane": "Airbus A321",
+          "airline": "Pegasus",
+          "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/PC.png",
+          "travel_class": "Economy",
+          "flight_number": "PC 2476",
+          "legroom": "28 in",
+          "extensions": [
+            "Below average legroom (28 in)",
+            "Stream media to your device",
+            "Carbon emissions estimate: 60 kg"
+          ]
+        }
+      ],
+      "total_duration": 75,
+      "carbon_emissions": {
+        "this_flight": 61000,
+        "typical_for_this_route": 65000,
+        "difference_percent": -6
+      },
+      "type": "One way",
+      "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/PC.png",
+      "booking_token": "W251bGwsW1siRVNCIiwiMjAyNi0wOS0xNyIsIkFEQiIsbnVsbCwiUEMiLCIyNDc2Il1dXQ=="
+    }
+  ],
+  "baggage_prices": {
+    "together": [
+      "1 free carry-on",
+      "1st checked bag free"
+    ]
+  },
+  "booking_options": [
+    {
+      "together": {
+        "book_with": "Pegasus",
+        "airline": true,
+        "airline_logos": [
+          "https://www.gstatic.com/flights/airline_logos/70px/PC.png"
+        ],
+        "marketed_as": [
+          "PC 2476"
+        ],
+        "price": 1967,
+        "option_title": "Saver",
+        "extensions": [
+          "Seat selection for a fee",
+          "No ticket changes",
+          "No refunds",
+          "Food available for a fee"
+        ],
+        "baggage_prices": [
+          "1 free carry-on",
+          "1st checked bag free"
+        ],
+        "booking_request": {
+          "url": "https://www.google.com/travel/clk/f",
+          "post_data": "u=ADowPOKGW_FdiuaSZvjYXuLqAtpzNvWbtfyKzj8DAROPMzZkcyKnnd-bVxbvVZiKb52xAXt0uX_9pRDe2NNeTxQeZOTENmJZUs0OpAJHl3wtt4iBuL3XIrDOnb3L6SAqAY3YVWpVJ6aj8ssI3gwP5PB6P-2CgI8QekS-qtJR0SuHphmotAW9X2F7hf6filsJn-VjkwTEZSVCQNZItOBkSKEdhlK78v8_T5kcXAC745AFDFkFHRMVs6UszZYMs6NP-KArez9T4C4DNM4X7JPs5cw-jXFu-W_OW4FMg5nwS_xTmDvr_1vp_J-G3xlJycZJdMEipXfr9eG3czqOSdI78g7dTats8VEpTAhR93yyMP9JJshhaDjqxwDHqCYiySZs0ApsQzGU96NNvlQXI0SjFk-t5282cvbcLyeDDJ7zf2aMTJ2P91ujhBMw280T7gqFofhfMldHmYju93_EtWv_0l_vtd0aVe2uT3em2Y4O3umtAfAS3w24etwmYumGy1_GvPdNbzpBGcob08eMW6-7kthP3So2y4PMbvmXhFUf5yakCmGJ4hK7EHUo5JspyjXqc1DpL9iv-TZJ4i5aU4ijDBQ2BD-TjULbzdC3LoDlsSJl5vCljog_erUSud3oI1LDESBLyw791N1pNeBymU33ccHMG-peXSXmLfcf6qLwaruCjOfuGQCrRJ1KRTVDqvVPAmMVOH5AXEdzlpGunbDrOPGQotEf-HXk-tZZqmazStzNrKeWpra1P_Gjp_g5sV60Ml-CaWUpGRFvuN5dDnpWKCofCZmvb-3h3pSnp9z33otS4MhS3HDb5mFK1ALxZJfWPE3qz9DKX0BWfneoEmBPjchG8VvY2ydlgzU3Tm_6Ek7K1Se9x10daHB4ipQK4_J4rXp9Bp12j-8qnlh3tWTu3P5WfF0Iw0fTE0ynhllcY919LBX75JyXAzFm3F4cQry3Z6KH1gfiQAC-YKnXm4gQZTFYU9eteUjNTSQI8GeGn0R2YhhNbWJ8j1GcftgToq_8rIomHaB5o3uwAgxopU6AuTHGaQeoaXfUSNFg0LRX_HNbnOsCam0o9jZjE7p4K-6Z-lkjeZAytJzQA44xYu9U-YADTpNf4SGGgNJcrykF5uYI7uQzNcdjPt8qUm4hNoC4rJLfPivebW-rUuzOOCeTQGq_Km_iIHrZb2d46t_Q-Md5BVsZS3SAOgs8AHceh8ET8oaFkJtmdsYctvj-QlupaNZIwT38YWu2N_SkiBotmrSnb0IJt59bvcgCJd8g3y5DkgVjJoa78qRY37psF4KHqEPpqx4xT6xl1V9qn5iaisjYWfV7II3okHbNjz979EK3q2GuQ9CJVlMyEJDsg7xfnGCjFT1rskfZ6fAfiO72JmEj0oYQjYg_bNJacho1WXyf2ivvxN9Z5iskIfV6UoI1SviTkffFxNbSSjSbm6KMqX0xjP6ciD94kgpczdpHf0I1Rn_qETpuV8DRQd1tnHMSh0u2JtxeeSXrTPSF6appBXU7EGbp6Sg2vjnpBl8Avb2UZwuAKxUvW32UgGWxqGoD2Pti-C3Dy4EBfxMy7-W8gl2qSn50VrSMjx6p6B_sIjBf33_QOezbFK4FLJgktn10tuDd4BsN15DsFyE3Jd_PNeq2Gvc35z8_Yuv974CTG8lAHLcSuU6rzwyZSvc14jjVcCkkA_PvUC3Tb9Wo_wiXafuo0xkGVAFLLkH8-fsCEon3JgWIPZrJdcgIDWwW_Rfg0YbNyHHLtWxQKFCaDHbzgzayRs2kB-ay5k3-rReP413FRlR7AAG_uKWJ5tOUcEMNjOS47jt5vvAG_ZqO0NRjEmGvAv6LsHaBI_PwU_gEiGlMrzlOba9iER0g9qRGFSypGV7HH9k0jpsiLarzRV4PgD3BWrnqGW2rgWXfi6V6L33YEVwPVB1xmU_M4w1zkUXWYcNDnBnasdghLQ2No21GeMDbR_p_bxM5PUD3i-z49zw4UjR3xc14Jr9qRJQaQYonlJAyOy0Tfem303Jg_DukWnMJy_OkPZXFbVD_VASupYhZUePzBPx-4NHw86bhsXPd-2jsaOAfUl0Qr9RLYLMexuowCUxqCvgTeAW5B7C-_vnp1zU"
+        }
+      }
+    },
+    {
+      "together": {
+        "book_with": "Pegasus",
+        "airline": true,
+        "airline_logos": [
+          "https://www.gstatic.com/flights/airline_logos/70px/PC.png"
+        ],
+        "marketed_as": [
+          "PC 2476"
+        ],
+        "price": 2867,
+        "option_title": "Saver Plus",
+        "extensions": [
+          "Free seat selection",
+          "No ticket changes",
+          "No refunds",
+          "Food available for a fee"
+        ],
+        "baggage_prices": [
+          "1 free carry-on",
+          "1st checked bag free"
+        ],
+        "booking_request": {
+          "url": "https://www.google.com/travel/clk/f",
+          "post_data": "u=ADowPOLnSOR32cU-lzQxt3SbBhnAGFNN_tQhLsrzcIaALqD1xyGevEHqodZUgFn0XHC6-sMnzFkN9oSpaVt5EHnN0RJl6JORfJuql4R12TdepLePZSD-3wBfFgKieK6b5N62ulpteNwOJZiWhKz0GFW31PNj0CPuQcNvu19I5MhMUDgxqEqcPulfg56IKZ2o915n1X0nbVtLW0RCXvIDbyFRhAdrBo8gVkUFJervTgbLC7Cg9VB926MWQrJDTD25NYNYbHHhkJZBa4Sgx-jN4qZaYlLOy-QIggDXBY0YO6JESfJLXjNjIsipMlcDV0T0VSXBzmDJEKb5jZTxpSzE7_XH-86YQr8SDBNq1RkKlfXBt-W8SxtAvKZHQwMbhHsr9NWu9Ny9Ed540Ne7jXp2MKI3RKkD1aSSPFzJztsrNaFKVKXU0ZYy65ZICi8OqovsRYwp_79WJz2tDPgQLq8PRCcpj-Mmv2QPIUazkvq82knR2x3gyVzpYhmcrxr8bSO_VqQk3c2iizg_fIeUOFc0J6JT8p3qK4Zw715V73QFpm5FXZ5Hp9Y9KwRCtwrpFZX9lOEiFjXnHsKgLOif30wev6qkvLIZyj9PvgtmStV2HgH4TOWmYN0sdES9bxD7yamcTCjzT_h65_Hkw6mOtT19526FWP_96mATKL3c3QRQKvHD-3PzGNvbSKwRba3--HZbOPgICc2y-BWA9JmfGG6N-ybIJCdMDx9DXNEvRtlWSTZPtd3FjcTKAAQMhZbnxj5PZ2oRKeNmACRzKbVEAhN8kl0eEwH6liMqTXY5bjYyvq0mJdxpIlKzPYOOj6mEv8_Zve3mcNGa69KiKwD0Df8X71MI2kAcHUzfUwTdm81VognaY5Exkr5hpWBqmxTNFMR1KlLBpe9GONPbR19uO9cc_kcZwp5TzF3vcy4dE0KqFdoFkSwd7WbiRNExd98yHVrrSuNJ98vy4278NG0deIRflWQsjp_OvXXVgytR1dUos4FHbBkANDC3dRAo01hwhvCoa64LVNejdA5toNuwA2NZJU5DxNiGbNrVaSnp1STyfegM1-aF5BMrYNAZ73eX7h2JOd34u7Kiafk3VH3cuO9vAZ3jR5EQgncRsk_vGKiQvDKtHTejrTteaoL10WTJrpWbqCbjHS8JfifuK_Ik6hf65MNkM_Lkv589pbXhMmvA9arsqWc3ucddD46k-c3Du_Li0hOPrOlHOGhExOv4TEx-jhFO20Er5Hg9jTpBdyO7DV44cB4sgRUino8xk0lM6yzl1c3BLIJ_lVs6iAypzUsQxBzRcyWpw98_rTHTFJNEAC2pH6-8L_GuUV72ZhStZA1JqGAyOe6vr3iXmZ8pM8jvyJYTCdCmE3opoUJfzCjSVfp68eNyXD67KoNArpu7JAF5JYoYgYhAHUhOKGenJVOd5w4A_Tt9Ft2FpRcheowzgiYeMPHJCaPM8j6KdxPsZs6fi4AbRWA1Vh3luydcFwF1X83FchX5G2T3d5KDHfH7ECcDEaicn4lgp8GyK0UFN5Ew9x4Gjh1ccMNCOoW9qjN6vyTzr8b3R89AC7LlPAyvC_C5IhGS5t7cG6OmbeuqXZrXAb9C7_YyWzZvXK_4u_QUVeyQTebMiOHNOQFmF3CcGbbGFdjCrp2Mojbdvpltr_Rr4Z_tmFupjEnik2Gk_TN8FdzvV0xoH5OFgB1FOI9zY5SQcG71c27n9zgDfB6RsGiuBnSP4EWngnkDcxiU-Vd9YbVvWyT6qDhYzANNTI_LfcveMSGTPtvRvWD3jNun6m3l-56JY6KGdut7CFZnY5UhNIRfv3D2uOUY7j6_Ur-OOtXk6acj27x9uz2S0RVOkFUsrCCjGLZLlLzlr42DS-4xth6A-xwxr7QWKto1m5tg6CWqmhcJ8NceVWezGTVgdMQ2YCEcLrveGJj10YL59Lh67AJ5DUlnSdY1Gkd1FbMl-B2qXVyViT6TWORFPW6qwPqLbAiT-mKB0MuatcM9sZxAFBBb4mqNBO6qxCWtVJEWQR5daPt2Qd2ezpO6iXXa3wfynVld7i89GdGUpX3iOJSwa624ErLXS_6z6Ocur2jMw0UW3qtlRCzLBmL2ZufQUVQRkL4yMm64Gm7j_jNgJg7cTN3As5yXsvQ"
+        }
+      }
+    },
+    {
+      "together": {
+        "book_with": "Pegasus",
+        "airline": true,
+        "airline_logos": [
+          "https://www.gstatic.com/flights/airline_logos/70px/PC.png"
+        ],
+        "marketed_as": [
+          "PC 2476"
+        ],
+        "price": 3167,
+        "option_title": "Comfort Flex",
+        "extensions": [
+          "Free seat selection",
+          "Free change, possible fare difference",
+          "Full refunds",
+          "Free meal service"
+        ],
+        "baggage_prices": [
+          "1 free carry-on",
+          "1st checked bag free"
+        ],
+        "booking_request": {
+          "url": "https://www.google.com/travel/clk/f",
+          "post_data": "u=ADowPOIDbP2e1D_bAiprO28vON106BzAkmBbcJJ-Do-CnM6nkf_V0yC8rIIQvvFsnwpv9gfb-LUMt2h3W7BDXrQ35O2ZBnDQyuIjidoOkQ6hAjunka_RQC68D8Hhnm23HxBMeYB9YwvQUmC-qQUXrhwnG7NhCBm1KcqLNWlqrCtoVEB5iOdrGXwkEyU7U_Exz-NkvY0bKobl6Y5JktOWdco91MLnCzttp9Rdk1vFuHLs8SbnZGgXH2iDnWFCCHtGN6NZ72Idcy8_kEOYbtQjhl56tGx-ua14wKfBxZZ5F3mgbF-VS3od29d9LeaswRdTAs-CSwKQOARrXi68zOhJZtJYbOaP-zXn8nb4zuipYbC73X6OxCJQJtqZPxHR8N2gqgScQKDpSeGlOHMv8Xphf2nIIHOu7IzG-jm-ngS-acPTL1Q2yZiKME-UX-4rIBuQktmW_A4wK-LGUh8oEK2FAZ-8Muo2r-lAx0vdujJuwtBDezQmbQbIvDe-QPPUyFCSfAIbtLmz-Q3ohCbwogN5aq2fDIvz23zTCw6Bl5nOzIp712Z5dunAQz9krcWPaN_c6Ufz6AW8rLuJ2tT1xV8stFDL0c3paffWeCD7Amp9IsWDfNCH0gPrycOsoBLhJd2KmheYO9iHRwI27mz02Mw8bYUGPyFqzQIXWIw87XB3Zwn3s0D3ZtSb08MPieTe7MEmO34USt5uNTmmqJKyPc1nqsCtajzKz9-dSPzfF_6844QyG3gOtXC_GsgWoquUVnqnpGIXgpY51_IqQ1ZNjeNfEK-wRi9Wp0v8jGsLqLuOQ6dqBpjHoEjgtXXmYVwOiPkMaiB5y8LJTxCIRyb0E5XfTUQ-crWCr7SeA-zwP3EnBzML5jKcwdVN2cvqZGTaBK2QN3STeUUAW4rbAYOVahptwGvE55EysmiVy3zpSgpZtMmX5elL3UGocbObwGtEu46-ryKmhq684BUm0wg1QoKybv_0TpO153FueHXI3Qh3PbDK_InQXUbECrelhEmaN-l5TNfF5bRUs6_cipmOljVvjoVBYhKVG8UOpPaU_0sOEjtozseUTcIHoNEj0qukD4yQlrJyU2tz7nOZ1o-4kIMIrxq14MMqmvizv1LZW5Bf8Q93X6eqrAPMU0U2c6TFj7oe4GiyL-2cVwZcUeGy4WPeZ9RKOGAKrF8YQMhglxvGc04_R6RnnczrejqOS8AuliUks-__NqZ7lR-P6ar_DTXQ05v_CAiZsTL5ermG3mxuZi4Wy2LkLHTGYGh94dLzwykKFEDVr3SUVx_DNt_raDXzu1Prscy-mMu0RwYiW6l3SMvtRF-gb1Wf29FUp39cfp-iciSPoPC59gCmVpImhvWvmlUxq2TzkLIcE81dFrCC8PQemG2DEr-71oiOQVLtMhD6XGYdomLBuRFjRxxVA8gX4LLbU0HnhRrTWXWin2dxC8yym7lqTVa3-2HtVU8HdDAl9SJpLCV5RSGMfweUM2VDpcuWNCsz3fgyx0WKu6NJjoyEd8bMJjF4yS4qbIOZEkYOzLNXP6l27AdkJKJ9d2dVRB_W2fxjnru2GQjYS77ph-mYldmO_aWpal47cRll1E1RmVpJBJYj2JdnmeYLAf62V0Ah0he3xamdbiqSFadLTC1FlDsrLtSpEaqAqQeXLBdS5MAHbghc_7cm7n_abo3gmAv6UX93qSxv_tEFozJ0PBEeOOXOvLBjCkD2JZLTp6NzxeCq4gcHuhehBiyhDgaSugg7LXkvUOrJQhf6OHG8Q3hqfcIqDWPv6_2TY9FwIuxdAfHgU6lZ6paHwl42Z2BijpjPBVDIq4SuPtorAq7ktz5A0UZodEAtoTQ__PXYg4DmlTkdaCIEp44bWWSRnR60ye2baluoC47HznVhfEoMsd0p9gzwaOKu2o8jf50w_6GN0MtDn18TVWDWJj5QJmrFYuut5F3ctB4HoOP38Y5zHP37S3_aagRobZ6pJUMCT10T0Rf9xlUzt14mf9gmNzaDDYSADE9QeDLV2EwYa38KXz9mU-NOLqbeZmdSepB3y-636uciTkYwVX_wrfakhxMF7fjsSeaTJ8a1deUqSEMxribkeiZvdq2Yxhbjb6IegJ4bxO7hgKwRC0N8Ixf0dOwwOkSGdDx5JVZvQPscZog"
+        }
+      }
+    },
+    {
+      "together": {
+        "book_with": "Gotogate",
+        "airline_logos": [
+          "https://www.gstatic.com/flights/partner_logos/70px/ETRAVELI_Gotogate.png"
+        ],
+        "marketed_as": [
+          "PC 2476"
+        ],
+        "price": 3086,
+        "baggage_prices": [
+          "1 free carry-on"
+        ],
+        "booking_request": {
+          "url": "https://www.google.com/travel/clk/f",
+          "post_data": "u=ADowPOJYHww5VFjDqFTnaYU5C2P6Aov7m-5vrXgkBsC6rcgLLQbCyx77XYmW3wzOm_cz26hFM_Mf1ZlgSPVKfrujbAcQMIZ8u4P9qGIppVDdnsqvWQF_yGIv-4Dnyj_z3hcCmhWpUlDXsyellhD_dAC9FX_vfFK-cKiUNQTdygQzZuum_mVF4DCUN3L7c-ilwef3hEaoXFF-1M-2Dbsn3076s_onMBgl9Y76KlXnPIWt8pG-aAhYhXfZktcs4GC1d4ymMG_y2hSYTlBwGdTx1808NNJf_5giXg7r5e6gV5NBFNT0_Ixxe1B8FhwnrpqWT2HdU3lrbbu4kxWd3j0O-4OxAFSaFi3cMxh5ozUomfvjL25ixSF0gYrTWfHyMJ71UxQ8CnHljNaq1PFAC9tkY7OqSzgn1WLAEczW17jERxjSGA514qOlpbI5Y5ioZSuzROu1LoEzDgDlGUneLGccEefmHJ2v8pt9RsGa1mVW-esYi3MD5xmSJym9p2OZNggiAB7hgM8t5UZoPJuAK86nH18YrkTYSlbWskNL-PSSYGyGX9DVHhZffRnQCAgHOaTqWaA9NZR1EBXAq7J00N4KnQ9SLH8RbckszVFXnYf6R3TotXzqmwq0AhhJLW0zsCbab5TtIBP8KWKJvMb8qhMJ4T73MWPL98FPQ-BLycP5TxWzLlKCaKaKn4Xso1FFY98LTpjanhP4vvD1A1Ay9N2SApUMngt9ufQwnke-Anpv6hst6qe901dgssUXQT2K8Ydq9-bHGGh7PJxRtRBQXMqvl8wDrLLUKZusIjP6IBweQ0JzQqiGKdJhyv6GbBkvkiVKo_pNLdDQoJKEGw75AtsUevuziJam78jmSRPELuWzKcstrSs7bYJlEGnrNi5mE3zpIwqf5fAnqZUJj6R7J6ydpj154eL6VSPp3BHSy6FdxBZjmliz_AQ5Rx9XOtakidVWriKc0djRyESA_K_9PfQ5q7gsKgfMmwgXH18EeTX1xKwgsTJ18gWaA13mlDMv9Td-qLKWTk0mw2h3jkFXjaBV5pU-3aUN6QfStRGEhW4hv-181TjKA1Iu1IlyVCV95yxl7ieAzInm5vfXX20YPpXm9-92bdLMK00LVXewj_memSBSMVsLj5lF8Vw8LXuoAEWqbk44qubavN33uIB0MQhTKftqBtmgDWg5w-ekI6gIGUEvWDW_yRdq8Ee8PyGPHOYeQEWfTKsrkPRA2zwDbNpGI9LRspsdiJcdmHf5mw8CjLMxNHImiPkBI3M6192SxP45mfKTOvu3Ja4MOxfeofLz76jA7lJJ1do1ySwm9cW_oNU0ziGGVv72BAJxl6IDvRGyFA-ntHXgHj4420niMPSj0TI5tUDwasJrinZ_0lfPuPUx1QGxoL519HIWgG6RTHc9l0MfSdOxJBoxySFWf_IzqMa5yFSilqC_vYN4NJ_KeaJy2eX6Jlgnx9hH1hzzm4fo9uKKlMUlGC2EzKobVJLh5Q5rMnmA2FogxLAJsIrhAhUID5QYqNdPm3df7UjjpXmDVJQwx-x-ctDWlsJwcV-VJKx8u8jnwr5Dfu_LBEu7nQ-NqlxHNiiXSFsY8TUW0FlJ7od1RW8318HYjgcl-sjEmyq-W7aCHek2y6CnFj_qz2V6nWHnXoz5Mb8a0tnOuVOp4uxNpfKk0uAWFTTxhVC0yg67CTcJ0X4CEnzPFae3Bg-HEoT0P2bxEUnSn6mm6N83CS8YTKPmXvk87TLloz8gjaLg3BYB1EjUijo9FDvtqesl3jVYvw66ZZzUPZ69FuQjbAhOZLcOq4STQUCWegoUTqLLmPflkfOwAPnEgBF04VEFBO--wXZjFC0amp-EGSKGUvfSH-uj6sl-USDWSXM2UrCdUisQZjdCU2QUe1i4ko4AOkKSBHdJbw"
+        }
+      }
+    }
+  ],
+  "price_insights": {
+    "lowest_price": 1967,
+    "price_level": "typical",
+    "typical_price_range": [
+      1400,
+      3300
+    ],
+    "price_history": [
+      [
+        1783112400,
+        2362
+      ],
+      [
+        1783198800,
+        2362
+      ],
+      [
+        1783285200,
+        2362
+      ],
+      [
+        1783371600,
+        2051
+      ],
+      [
+        1783458000,
+        2052
+      ],
+      [
+        1783544400,
+        2051
+      ],
+      [
+        1783630800,
+        2052
+      ],
+      [
+        1783717200,
+        2052
+      ],
+      [
+        1783803600,
+        2052
+      ],
+      [
+        1783890000,
+        2052
+      ],
+      [
+        1783976400,
+        2052
+      ],
+      [
+        1784062800,
+        2052
+      ],
+      [
+        1784149200,
+        2052
+      ],
+      [
+        1784235600,
+        2053
+      ],
+      [
+        1784322000,
+        2053
+      ],
+      [
+        1784408400,
+        2053
+      ],
+      [
+        1784494800,
+        2054
+      ],
+      [
+        1784581200,
+        2054
+      ],
+      [
+        1784667600,
+        2054
+      ],
+      [
+        1784754000,
+        2054
+      ],
+      [
+        1784840400,
+        2054
+      ],
+      [
+        1784926800,
+        2053
+      ],
+      [
+        1785013200,
+        2053
+      ],
+      [
+        1785099600,
+        2053
+      ],
+      [
+        1785186000,
+        2054
+      ],
+      [
+        1785272400,
+        2054
+      ],
+      [
+        1785358800,
+        2054
+      ],
+      [
+        1785445200,
+        2055
+      ],
+      [
+        1785531600,
+        2056
+      ],
+      [
+        1785618000,
+        2056
+      ],
+      [
+        1785704400,
+        2056
+      ],
+      [
+        1785790800,
+        2030
+      ],
+      [
+        1785877200,
+        2010
+      ],
+      [
+        1785963600,
+        1990
+      ],
+      [
+        1786050000,
+        1970
+      ],
+      [
+        1786136400,
+        1950
+      ],
+      [
+        1786222800,
+        1931
+      ],
+      [
+        1786309200,
+        1911
+      ],
+      [
+        1786395600,
+        1835
+      ],
+      [
+        1786482000,
+        1834
+      ],
+      [
+        1786568400,
+        2000
+      ],
+      [
+        1786654800,
+        2000
+      ],
+      [
+        1786741200,
+        1816
+      ],
+      [
+        1786827600,
+        1798
+      ],
+      [
+        1786914000,
+        1726
+      ],
+      [
+        1787000400,
+        1727
+      ],
+      [
+        1787086800,
+        1605
+      ],
+      [
+        1787173200,
+        1605
+      ],
+      [
+        1787259600,
+        1607
+      ],
+      [
+        1787346000,
+        1607
+      ],
+      [
+        1787432400,
+        1607
+      ],
+      [
+        1787518800,
+        1607
+      ],
+      [
+        1787605200,
+        1664
+      ],
+      [
+        1787691600,
+        1664
+      ],
+      [
+        1787778000,
+        1762
+      ],
+      [
+        1787864400,
+        1761
+      ],
+      [
+        1787950800,
+        1761
+      ],
+      [
+        1788037200,
+        1828
+      ],
+      [
+        1788123600,
+        1828
+      ],
+      [
+        1788210000,
+        1895
+      ],
+      [
+        1788296400,
+        1967
+      ]
+    ]
+  }
+}
