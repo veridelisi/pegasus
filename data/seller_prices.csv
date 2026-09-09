@@ -1212,3 +1212,7 @@ checked_at,seller,fare_type,price,currency,source
 2026-09-09T10:45:22+03:00,Pegasus,Saver Plus,3748.0,TRY,booking_options[1].together.price
 2026-09-09T10:45:22+03:00,Gotogate,,3776.0,TRY,booking_options[3].together.price
 2026-09-09T10:45:22+03:00,Pegasus,Comfort Flex,4048.0,TRY,booking_options[2].together.price
+2026-09-09T16:18:27+03:00,Pegasus,Saver,2939.0,TRY,booking_options[0].together.price
+2026-09-09T16:18:27+03:00,Pegasus,Saver Plus,4039.0,TRY,booking_options[1].together.price
+2026-09-09T16:18:27+03:00,Gotogate,,4068.0,TRY,booking_options[3].together.price
+2026-09-09T16:18:27+03:00,Pegasus,Comfort Flex,4339.0,TRY,booking_options[2].together.price
