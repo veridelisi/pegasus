@@ -1481,3 +1481,13 @@ checked_at,seller,fare_type,price,currency,source
 2026-09-16T02:21:31+03:00,Mytrip,,6468.0,TRY,booking_options[10].together.price
 2026-09-16T02:21:31+03:00,Pegasus,Saver Plus,7241.0,TRY,booking_options[1].together.price
 2026-09-16T02:21:31+03:00,Pegasus,Comfort Flex,7541.0,TRY,booking_options[2].together.price
+2026-09-16T05:50:13+03:00,wego,,6103.0,TRY,booking_options[3].together.price
+2026-09-16T05:50:13+03:00,eDreams,,6280.0,TRY,booking_options[6].together.price
+2026-09-16T05:50:13+03:00,Turna.com,,6391.0,TRY,booking_options[5].together.price
+2026-09-16T05:50:13+03:00,Pegasus,Saver,6441.0,TRY,booking_options[0].together.price
+2026-09-16T05:50:13+03:00,Trip.com,,6502.0,TRY,booking_options[4].together.price
+2026-09-16T05:50:13+03:00,Kiwi.com,,6785.0,TRY,booking_options[7].together.price
+2026-09-16T05:50:13+03:00,Gotogate,,6888.0,TRY,booking_options[8].together.price
+2026-09-16T05:50:13+03:00,Mytrip,,6894.0,TRY,booking_options[9].together.price
+2026-09-16T05:50:13+03:00,Pegasus,Saver Plus,7691.0,TRY,booking_options[1].together.price
+2026-09-16T05:50:13+03:00,Pegasus,Comfort Flex,7991.0,TRY,booking_options[2].together.price
